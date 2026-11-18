@@ -1,0 +1,80 @@
+{
+    "project": "RetailIQ",
+    "model": "KMeans",
+    "scaler": "StandardScaler",
+    "model_parameters": {
+        "algorithm": "lloyd",
+        "copy_x": true,
+        "init": "k-means++",
+        "max_iter": 300,
+        "n_clusters": 2,
+        "n_init": 10,
+        "random_state": 42,
+        "tol": 0.0001,
+        "verbose": 0
+    },
+    "features": [
+        "Recency",
+        "Frequency",
+        "Monetary"
+    ],
+    "transformation": "log1p",
+    "scaled_features": [
+        "Log_Recency",
+        "Log_Frequency",
+        "Log_Monetary"
+    ],
+    "model_input_features": [
+        "Scaled_Recency",
+        "Scaled_Frequency",
+        "Scaled_Monetary"
+    ],
+    "reference_date": "2011-12-10T12:50:00",
+    "training_customers": 4335,
+    "clusters": 2,
+    "silhouette_score": 0.4328513951999483,
+    "cluster_evaluation": [
+        {
+            "n_clusters": 2,
+            "inertia": 6479.769891542642,
+            "silhouette_score": 0.4328513951999483
+        },
+        {
+            "n_clusters": 3,
+            "inertia": 4864.786974919376,
+            "silhouette_score": 0.33752055750959115
+        },
+        {
+            "n_clusters": 4,
+            "inertia": 3934.8997389743754,
+            "silhouette_score": 0.33667546400660225
+        },
+        {
+            "n_clusters": 5,
+            "inertia": 3291.8455363658218,
+            "silhouette_score": 0.31633726621412034
+        },
+        {
+            "n_clusters": 6,
+            "inertia": 2851.9193076344886,
+            "silhouette_score": 0.31335984359468283
+        },
+        {
+            "n_clusters": 7,
+            "inertia": 2549.026115253858,
+            "silhouette_score": 0.3091411488587905
+        },
+        {
+            "n_clusters": 8,
+            "inertia": 2337.6150756074803,
+            "silhouette_score": 0.2973213700960851
+        }
+    ],
+    "software_versions": {
+        "python": "3.13.18",
+        "scikit_learn": "1.6.1",
+        "numpy": "2.4.6",
+        "pandas": "2.2.3",
+        "joblib": "1.6.0"
+    }
+}
