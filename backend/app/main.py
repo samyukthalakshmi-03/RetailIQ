@@ -1,3 +1,4 @@
+import os
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -23,7 +24,17 @@ app = FastAPI(
 )
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    # Local dev origins plus any deployed frontend URLs, e.g.
+    # RETAILIQ_CORS_ORIGINS="https://retailiq.vercel.app,https://other.app"
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        *[
+            origin.strip().rstrip("/")
+            for origin in os.getenv("RETAILIQ_CORS_ORIGINS", "").split(",")
+            if origin.strip()
+        ],
+    ],
     allow_credentials=False,
     allow_methods=["GET", "POST"],
     allow_headers=["Content-Type"],
