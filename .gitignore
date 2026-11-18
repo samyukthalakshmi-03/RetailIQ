@@ -1,4 +1,4 @@
-artifacts/
+# backend/artifacts/ is committed: the deployed API needs the model files
 backend/.venv/
 backend/__pycache__/
 backend/.pytest_cache/
